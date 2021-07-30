@@ -14,7 +14,7 @@
         document.getElementById("clicks").innerHTML = clicks;
         // Отправка события 
         vkBridge.send("VKWebAppGetUserInfo"); 
-        bridge.send("VKWebAppShare");
+        bridge.send("VKWebAppShare",{"link": "https://vk.com/app6909581#hello"});
         // Подписка на событие-результат 
         vkBridge.subscribe((e) => { 
             console.log(e);
