@@ -1,4 +1,6 @@
 import bridge from '@vkontakte/vk-bridge';
+
+
 bridge.send("VKWebAppInit");
 // Отправка события 
 bridge.send("VKWebAppGetUserInfo"); 
