@@ -8,22 +8,26 @@
 <body>
     <script type="text/javascript">
     var clicks = 0;
-
-    function countClicks() {
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks;
-        // Отправка события 
-        vkBridge.send("VKWebAppGetUserInfo"); 
-        vkBridge.send("VKWebAppShare",{"link": "https://vk.com/app6909581#hello"});
-        // Подписка на событие-результат 
-        vkBridge.subscribe((e) => { 
+    vkBridge.subscribe((e) => { 
             console.log(e);
         if(e.type == 'VKWebAppGetUserInfoResult') { 
         console.log(e.data); 
         }});
-    };
+    function countClicks() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+    }
+        
+        function getUsetInfo() {
+        vkBridge.send("VKWebAppGetUserInfo");
+        }
+        function share() {
+        vkBridge.send("VKWebAppShare",{"link": "https://vk.com/app6909581#hello"});
+        }
     </script>
     <button type="button" onClick="countClicks()">Click me</button>
+    <button type="button" onClick="getUsetInfo()">Click me</button>
+    <button type="button" onClick="share()">Click me</button>
     <p>Clicks: <a id="clicks">0</a></p>
     <script type="module" src="./index.js"></script>
 </body></html>
