@@ -1,18 +1,13 @@
 <html>
 <head>
     <title>Space Clicker</title>
-    <script src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 
 <body>
     <script type="text/javascript">
     bridge.send("VKWebAppInit", {});
-    var clicks = 0; // change int to var here
-    function countClicks() {
-        
-        clicks += 1;
-        document.getElementById("clicks").innerHTML = clicks;
-        bridge.send("VKWebAppGetUserInfo", {}); 
+    bridge.send("VKWebAppGetUserInfo", {}); 
         // Подписка на событие-результат 
         bridge.subscribe((e) => { 
         if(e.type == 'VKWebAppGetUserInfoResult') { 
@@ -20,6 +15,10 @@
         console.log(e.data); 
         }
     });
+    var clicks = 0;
+    function countClicks() {
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
     };
     </script>
     <button type="button" onClick="countClicks()">Click me</button>
