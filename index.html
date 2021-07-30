@@ -6,14 +6,6 @@
 
 <body>
     <script type="text/javascript">
-    bridge.send("VKWebAppGetUserInfo", {}); 
-        // Подписка на событие-результат 
-        bridge.subscribe((e) => { 
-        if(e.type == 'VKWebAppGetUserInfoResult') { 
-        console.log(e.data.status); 
-        console.log(e.data); 
-        }
-    });
     var clicks = 0;
     function countClicks() {
         clicks += 1;
