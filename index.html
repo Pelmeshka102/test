@@ -6,7 +6,6 @@
 
 <body>
     <script type="text/javascript">
-    bridge.send("VKWebAppInit", {});
     bridge.send("VKWebAppGetUserInfo", {}); 
         // Подписка на событие-результат 
         bridge.subscribe((e) => { 
