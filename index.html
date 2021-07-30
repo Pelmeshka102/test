@@ -8,9 +8,17 @@
 <body>
     <script type="text/javascript">
     var clicks = 0;
+
     function countClicks() {
         clicks += 1;
         document.getElementById("clicks").innerHTML = clicks;
+        // Отправка события 
+        vkBridge.send("VKWebAppGetUserInfo"); 
+        // Подписка на событие-результат 
+        vkBridge.subscribe((e) => { 
+        if(e.type == 'VKWebAppGetUserInfoResult') { 
+        console.log(e.data.status); 
+        }});
     };
     </script>
     <button type="button" onClick="countClicks()">Click me</button>
