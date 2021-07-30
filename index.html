@@ -17,11 +17,8 @@
         // Подписка на событие-результат 
         vkBridge.subscribe((e) => { 
             console.log(e);
-            console.log(e.type);
-            console.log(e.data.status);
-            console.log(e.data);
         if(e.type == 'VKWebAppGetUserInfoResult') { 
-        console.log(e.data.status); 
+        console.log(e.data); 
         }});
     };
     </script>
