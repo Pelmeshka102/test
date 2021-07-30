@@ -13,12 +13,13 @@
         clicks += 1;
         document.getElementById("clicks").innerHTML = clicks;
         bridge.send("VKWebAppGetUserInfo", {}); 
-// Подписка на событие-результат 
-bridge.subscribe((e) => { 
-if(e.type == 'VKWebAppGetUserInfoResult') { 
-console.log(e.data.status); 
-console.log(e.data); 
-}});
+        // Подписка на событие-результат 
+        bridge.subscribe((e) => { 
+        if(e.type == 'VKWebAppGetUserInfoResult') { 
+        console.log(e.data.status); 
+        console.log(e.data); 
+        }
+    });
     };
     </script>
     <button type="button" onClick="countClicks()">Click me</button>
